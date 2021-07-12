@@ -11,7 +11,6 @@ function restoreOptions() {
 
 let DenyHandler = {
   onHandler: async () => {
-    console.log('hellooooop');
     let [tab] = await chrome.tabs.query({
       active: true,
       currentWindow: true,
@@ -30,7 +29,6 @@ let DenyHandler = {
     }, 1200);
   },
   offHandler: async () => {
-    console.log('offhandker');
     let [tab] = await chrome.tabs.query({
       active: true,
       currentWindow: true,
@@ -44,15 +42,12 @@ let DenyHandler = {
         });
       }
     );
-    setTimeout(() => {
-      window.close();
-    }, 1200);
+
   },
   onSetup: () => {
     let toggler = document.getElementsByClassName('toggler');
     toggler[0].addEventListener('change', async () => {
       if (toggler[0].checked == true) {
-        console.log('STARTED MEET EXTENSION');
         chrome.storage.sync.set(
           {
             value: true,
@@ -62,13 +57,11 @@ let DenyHandler = {
           }
         );
       } else {
-        console.log('STOPED MEET EXTENSION');
         chrome.storage.sync.set(
           {
             value: false,
           },
           function () {
-            console.log('Switch Saved as false');
             DenyHandler.offHandler();
           }
         );
