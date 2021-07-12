@@ -3,7 +3,7 @@
 A chrome extension that will automatically deny the entry request of any participant when enabled. You can disable it anytime.
 
 
-## Demo
+## Demo (I know design sucks xD)
 ![Demo Photo](./demoImage.png)
 
 
